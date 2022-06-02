@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">AI_MAD_NumGame</string>
+    <string name="answer_this">Answer this</string>
+    <string name="textview">TextView</string>
+    <string name="button">Button</string>
+    <string name="button2">Button</string>
+    <string name="button3">Button</string>
+    <string name="button4">Button</string>
 </resources>
