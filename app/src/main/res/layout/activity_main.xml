@@ -6,6 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/grid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/math"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+    </androidx.gridlayout.widget.GridLayout>
 
     <TextView
         android:id="@+id/textView1"
@@ -14,7 +22,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="250dp"
         android:text="@string/answer_this"
-        android:textColor="@android:color/holo_red_dark"
+        android:textColor="@android:color/holo_orange_light"
         android:textSize="45sp"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,7 +38,7 @@
         android:layout_marginStart="148dp"
         android:layout_marginTop="50dp"
         android:text="@string/textview"
-        android:textColor="@android:color/holo_blue_dark"
+        android:textColor="?attr/colorBackgroundFloating"
         android:textSize="50sp"
         app:layout_constraintBottom_toTopOf="@id/gridLayout"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,7 +70,8 @@
             android:text="@string/button"
             android:textSize="50sp"
             app:layout_column="0"
-            app:layout_row="0" />
+            app:layout_row="0"
+            tools:ignore="DuplicateSpeakableTextCheck" />
 
         <Button
             android:id="@+id/button2"
@@ -98,6 +107,4 @@
             app:layout_column="1"
             app:layout_row="1" />
     </androidx.gridlayout.widget.GridLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
