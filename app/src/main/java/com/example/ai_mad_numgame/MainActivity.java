@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         textView2=findViewById(R.id.textView2);
         newMatch();
         sharedPreferences=this.getSharedPreferences("com.example.ai_mad_numgame", Context.MODE_PRIVATE);
-        int[][]dataFrame=dataPrep(); //dataPrep function returns a two-dimenssional array
+        int[][]dataFrame=dataPrep(); //dataPrep function returns a two-dimensional array
         double slope=LR.getSlope(dataFrame); //LR class, which provides slope on invoking getSlope
         new AlertDialog.Builder(this)
                 .setIcon(android.R.drawable.ic_dialog_info) //your custom icon
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @SuppressLint("SetTextI18n")
-    public String newMatch() {  //A game is composed of three matches
+    public void newMatch() {  //A game is composed of three matches
 
 
         int operand1 = random.nextInt(10);
@@ -122,10 +122,9 @@ public class MainActivity extends AppCompatActivity {
         }
         //check is operand2 is not zero; otherwise in case of division-divide by zero error will come
 
-
         // Your code here, to display correct and incorrect options on the buttons
 
-        if(matchCounter==3){    // if three matches are completed update the performance in sharedpreferences
+        if(matchCounter==3){    // if three matches are completed update the performance in shared preferences
 
             matchCounter=0;
 
@@ -135,7 +134,6 @@ public class MainActivity extends AppCompatActivity {
             sharedPreferences.edit().putString("data",new Gson().toJson(performance)).apply();
 
         }
-        return operator;
     }
 
     public int sumOfScore(){
@@ -153,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
     public int[][] dataPrep() {
         int[] data = new Gson().fromJson((sharedPreferences.getString("data", null)), performance.getClass());
         Log.i("data", Arrays.toString(data)); //this is how you display arrays in Logcat, for debugging
-        int[][] dataFrame = new int[6][2]; //creating a dataframe of two columns and six rows for regresson purpose
+        int[][] dataFrame = new int[6][2]; //creating a dataframe of two columns and six rows for regression purpose
         if(data==null)
             return null;
         for (int i = 0; i < data.length; i++) {
@@ -168,7 +166,7 @@ public class MainActivity extends AppCompatActivity {
         if(slope>1)
             return "Good job, keep it up";
         else if(slope<1)
-            return "Need to work more";
+            return "Need to be serious";
         else {
             int n=0;
             for(int i=0;i<=5;i++){
